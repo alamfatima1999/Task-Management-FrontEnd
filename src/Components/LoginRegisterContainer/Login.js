@@ -80,7 +80,7 @@ const Login = () => {
             Login
           </button>
           <p className="link">
-            Don't have an account? <a href="/register">Signup</a>
+            Don't have an account? <Link to="/register">Signup</Link></li>
           </p>
           <div className="googleLogin">
             <GoogleLogin
