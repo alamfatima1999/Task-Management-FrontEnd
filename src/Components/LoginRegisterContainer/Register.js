@@ -13,6 +13,7 @@ const Register = () => {
     password: "",
     confirmPassword: ""
   });
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +26,7 @@ const Register = () => {
   const handleRegisterClick = async (e) => {
     e.preventDefault();
     if (userDetails.password !== userDetails.confirmPassword) {
-      alert("Passwords do not match");
+      setErrorMessage("Passwords do not match");
       return;
     }
     try {
@@ -36,6 +37,7 @@ const Register = () => {
       navigate("/Dashboard");
     } catch (error) {
       console.error("Registration failed: ", error);
+      setErrorMessage(error.response?.data?.message || "Registration failed. Please try again.");
     }
   };
 
@@ -50,6 +52,7 @@ const Register = () => {
       navigate("/Dashboard");
     } catch (error) {
       console.error("Google registration failed: ", error);
+      setErrorMessage(error.response?.data?.message || "Google registration failed. Please try again.");
     }
   };
 
@@ -60,6 +63,7 @@ const Register = () => {
       <div className="container">
         <div className="signupBox">
           <div className="signupTitle">Signup</div>
+          {errorMessage && <div className="errorMessage">{errorMessage}</div>}
           <form onSubmit={handleRegisterClick}>
             <input
               type="text"
@@ -116,6 +120,7 @@ const Register = () => {
               onSuccess={responseGoogle}
               onError={() => {
                 console.log('Google Signup Failed');
+                setErrorMessage("Google signup failed. Please try again.");
               }}
             />
           </div>
