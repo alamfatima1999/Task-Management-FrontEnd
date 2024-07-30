@@ -10,6 +10,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [errorMessage, setErrorMessage] = useState("");
 
   const enterEmail = (e) => {
     setUserCredentials((prevState) => ({
@@ -34,6 +35,7 @@ const Login = () => {
       navigate("/Dashboard");
     } catch (error) {
       console.error("Login failed: ", error);
+      setErrorMessage(error.response?.data?.message || "Login failed. Please try again.");
     }
   };
 
@@ -48,6 +50,7 @@ const Login = () => {
       navigate("/Dashboard");
     } catch (error) {
       console.error("Google login failed: ", error);
+      setErrorMessage(error.response?.data?.message || "Google login failed. Please try again.");
     }
   };
 
@@ -58,6 +61,7 @@ const Login = () => {
       <div className="container">
         <div className="loginBox">
           <div className="loginTitle">Login</div>
+          {errorMessage && <div className="errorMessage">{errorMessage}</div>}
           <input
             type="text"
             className="inputField"
@@ -83,6 +87,7 @@ const Login = () => {
               onSuccess={responseGoogle}
               onError={() => {
                 console.log('Login Failed');
+                setErrorMessage("Google login failed. Please try again.");
               }}
             />
           </div>
