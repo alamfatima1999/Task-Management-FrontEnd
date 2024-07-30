@@ -39,8 +39,10 @@ The application will allow users to create, update, and manage tasks within diff
 <img width="1333" alt="Screenshot 2024-07-30 at 9 45 58 AM" src="https://github.com/user-attachments/assets/084857f8-bfa7-49a2-9b18-305efaf0e4f5">
 
 ## Deployment Details:
-Front-End - Deployed on https://task-fatima.netlify.app/
+Front-End - Deployed on https://task-fatima.netlify.app/ 
+
 Back-End - Deployed on https://task-management-server-mrnr.onrender.com
+
 Database - Using MongoDB Free Cluster
 
 
