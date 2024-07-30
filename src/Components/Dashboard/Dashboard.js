@@ -56,6 +56,8 @@ const Dashboard = () => {
 
     const handleDrop = async (id, newStatus) => {
         let taskToUpdate = tasks.filter((eachtask) => eachtask._id === id);
+        taskToUpdate = { ...taskToUpdate[0], status: newStatus };
+        setTasks(tasks.map(task => (task._id === id ? taskToUpdate : task)));
         if (taskToUpdate) {
             taskToUpdate = { ...taskToUpdate[0], status: newStatus };
             try {
