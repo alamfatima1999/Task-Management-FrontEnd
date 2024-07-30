@@ -81,7 +81,7 @@ const Login = () => {
             Login
           </button>
           <p className="link">
-            Don't have an account? <Link to="/register">Signup</Link></li>
+            Don't have an account? <Link to="/register">Signup</Link>
           </p>
           <div className="googleLogin">
             <GoogleLogin
