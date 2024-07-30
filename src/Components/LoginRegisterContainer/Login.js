@@ -76,7 +76,7 @@ const Login = () => {
             Login
           </button>
           <p className="link">
-            Don't have an account? <a href="/Register">Signup</a>
+            Don't have an account? <a href="/register">Signup</a>
           </p>
           <div className="googleLogin">
             <GoogleLogin
